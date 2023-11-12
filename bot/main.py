@@ -6,7 +6,7 @@ from telegram.ext import Application, Updater, CommandHandler, CallbackContext, 
 from db import db_session
 from db.user import User
 
-db_session.global_init("db/users.db")
+db_session.global_init("../db/users.db")
 
 keyboard = [
 

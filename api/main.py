@@ -9,7 +9,7 @@ from MLflex import MLflex
 
 app = FastAPI()
 BACK = "здесь должен быть адресс на бэк"
-#db_session.global_init("db/users.db") Для включения функциональности бота(рассылка при опасности) раскоментить при надобности
+#db_session.global_init("../db/users.db") Для включения функциональности бота(рассылка при опасности) раскоментить при надобности
 MODELPATH = "myyolov8l.pt"
 CONF_YOLO = 0.45
 MLflex = MLflex(MODELPATH, CONF_YOLO)

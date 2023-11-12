@@ -45,6 +45,8 @@ class MLflex:
             #    for i in session.query(User).all():
             #        self.bot.send_message(i.chat_id, f'Опасная ситуация {intersectionList[-1][1]}')
             #        self.bot.send_photo(i.chat_id, photo=open("tmp.jpg", 'rb'))
+        if len(intersectionList) == 0:
+            return [[[False, 0]], image]
         return intersectionList, image
 
     def intersectionArea(self, poly_coords, square_coords):
@@ -69,7 +71,3 @@ class MLflex:
                     for j in data.split(",\n"):
                         d[name][-1].append(list(map(int, j.strip()[1:-1].split(", "))))
         return d
-
-    def makeCSV(path):
-        df = pd.read_csv(path)
-        df.to_csv("submit.csv", index=False)

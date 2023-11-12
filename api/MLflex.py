@@ -41,7 +41,8 @@ class MLflex:
             #    for i in session.query(User).all():
             #        self.bot.send_message(i.chat_id, f'Опасная ситуация {intersectionList[-1][1]}')
             #        self.bot.send_photo(i.chat_id, photo=open("tmp.jpg", 'rb'))
-
+        if len(intersectionList) == 0:
+            return [[[False, 0]], image]
         return intersectionList, image
 
     def intersectionArea(self, poly_coords, square_coords):
@@ -55,9 +56,9 @@ class MLflex:
 
     def giveDictPolygon(self):
         d = {}
-        for i in os.listdir("./data/danger_zones"):
+        for i in os.listdir("../data/danger_zones"):
             if i.split('.')[-1] == "txt":
-                with open(f"./data/danger_zones/{i}") as r:
+                with open(f"../data/danger_zones/{i}") as r:
                     data = r.read()
                     name = i.split("_")[1].split('.')[0]
                     if name not in d:
